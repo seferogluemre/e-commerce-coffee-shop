@@ -1,0 +1,292 @@
+body {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+/* Top Social Link */
+.topSocialLink {
+  background-color: rgb(235, 126, 2);
+  height: 45px;
+}
+.topSocialLink a {
+  color: white !important;
+  margin: 5px 15px;
+}
+/* Navbar css */
+.nav {
+  background-color: rgb(255, 241, 241);
+  height: 100px !important;
+  cursor: pointer;
+  font-size: 16px !important;
+}
+.nav .navBrandLogo {
+  position: relative;
+  top: -7px !important;
+  height: 130px;
+  width: 130px;
+  margin-left: 90px;
+}
+.navLinks {
+  margin: 0 !important;
+}
+.navLinks li {
+  position: relative;
+}
+.navLinks li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #d26d1b; /* Alt çizgi rengi */
+  transition: width 0.3s ease-in-out;
+}
+.navLinks li:hover {
+  color: #d26d1b !important;
+}
+.navLinks li:hover::after {
+  width: 100%;
+}
+.cartNone {
+  position: relative;
+  right: 15px;
+  top: -7px;
+}
+/* Advantages */
+.advantagesRow img {
+  object-fit: cover;
+  width: 50px;
+  height: 50px;
+}
+/* Card */
+.card {
+  border: 1px solid #8b7d67 !important;
+  border-radius: 20px !important;
+  margin: 10px;
+  width: calc(100% - 20px) !important;
+}
+.card p {
+  text-align: center;
+  color: rgb(151, 98, 7) !important;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+.card a {
+  background-color: #d26d1b;
+  color: white !important;
+  border: none;
+}
+/* Various Css */
+.variousTitle {
+  position: relative;
+  top: -150px;
+  text-align: center;
+}
+.VariousProductBtn {
+  position: relative;
+  top: -130px;
+  color: white !important;
+  background-color: #d26d1b;
+  padding: 10px 23px;
+  border: none;
+  border-radius: 25px;
+  left: -30px;
+}
+/* Various İn İmage Css */
+.image-wrapper {
+  padding-top: 30px;
+  width: 100%;
+  position: relative;
+  box-sizing: border-box;
+}
+.variousImage {
+  transition: transform 0.4s ease-in-out;
+  cursor: pointer;
+  display: block;
+  width: 90%;
+  height: auto;
+}
+.image-wrapper:hover .variousImage {
+  transform: scale(1.1); /* Fotoğrafı 1.3 kat büyütür */
+}
+/* Viewed Products */
+.ViewedProductsTitle {
+  color: #9b5e2c;
+}
+/* Footer */
+.footerSection {
+  width: 100%;
+  background-color: rgb(255, 103, 32);
+  padding-top: 60px;
+  color: white !important;
+}
+.footerSection li {
+  padding: 7px 0px;
+  cursor: pointer;
+  font-size: 15px;
+}
+.footerSection .footerBrandLogo {
+  width: 160px;
+  height: 170px;
+}
+.footerSocialLinks a {
+  color: white;
+  padding: 5px 15px 5px 0px;
+}
+.footerEnd {
+  font-size: 15px;
+}
+.illuminationFooterLink {
+  color: #d26d1b;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Mobile Sidebar */
+.offcanvas {
+  background-color: rgb(219, 100, 21) !important;
+  color: aliceblue !important;
+}
+.offcanvas-header {
+  border-bottom: 1px solid rgb(216, 200, 200);
+}
+.sidebarSocialMediaLink a {
+  padding-top: 60px !important;
+  color: white !important;
+}
+.sidebarLink li {
+  padding: 7px 0px !important;
+}
+/* Mobile sidebar sublink */
+.sub-sidebar {
+  position: fixed;
+  top: 0;
+  left: -400px; /* Start hidden off-screen */
+  width: 400px;
+  height: 100%;
+  background-color: rgb(219, 100, 21) !important;
+  color: #fff;
+  transition: left 0.3s ease-in-out !important;
+  z-index: 1001;
+  padding: 20px;
+}
+.sub-sidebar a {
+  display: block;
+  padding: 15px;
+  color: #fff;
+  text-decoration: none;
+}
+.sub-sidebar a:hover {
+  background-color: #666;
+}
+.show-sidebar {
+  left: 0 !important;
+}
+.show-sub-sidebar {
+  left: 0 !important;
+}
+#backBtn {
+  background-color: rgb(219, 100, 21) !important;
+}
+/* Responsive */
+@media (max-width: 1000px) {
+  .navBrandLogo {
+    transform: translateX(15%);
+    height: 110px !important;
+  }
+  #navSociallink {
+    position: absolute;
+    right: 0;
+    top: 20px !important;
+  }
+  .mobileBurgerMenu {
+    position: absolute;
+    left: 5px;
+    top: 30px;
+    color: black;
+  }
+  .navLinks li {
+    display: none !important;
+  }
+  .card {
+    width: calc(
+      100% - 20px
+    ) !important; /* Mobil ekranlarda kart genişliğini %100 yapar ve boşluk bırakır */
+    margin: 10px 0; /* Kartlar arasına dikey boşluk ekler */
+    height: 95% !important;
+  }
+  .col-sm-6 {
+    padding-left: 0;
+    width: 50% !important;
+    padding-right: 0;
+  }
+  .sliderHeader img {
+    object-fit: cover;
+    object-position: 10% 50% !important;
+    height: 400px;
+  }
+  .sliderHeader .carousel-item:nth-child(3) img {
+    object-fit: cover;
+    object-position: 10% 10% !important;
+    height: 400px;
+  }
+  .sliderHeader .carousel-item:nth-child(2) img {
+    object-fit: cover;
+    object-position: 85% 50% !important;
+    height: 400px;
+  }
+
+  /* Footer Linkler gizlenip accordion gösterilmesi */
+  .Footerinstitutional {
+    display: none !important;
+  }
+  .accordion {
+    background-color: rgb(255, 103, 32);
+  }
+  .accordion-button {
+    border: none;
+    background-color: rgb(255, 103, 32);
+    text-align: left;
+    padding: 1rem;
+  }
+  .accordion-item {
+    border: none !important;
+  }
+  .accordion-body {
+    background-color: rgb(255, 103, 32) !important;
+    color: white !important;
+  }
+  .accordion-button {
+    border: none;
+    background-color: rgb(255, 103, 32) !important;
+    color: white;
+    text-align: left;
+    padding: 1rem;
+  }
+  .accordion-button:not(.collapsed) {
+    background-color: darkorange;
+  }
+  .accordion-button.collapsed {
+    background-color: rgb(255, 103, 32);
+  }
+}
+
+/* 1000px'den büyük ekranlar için */
+@media (min-width: 1000px) {
+  .navBrandLogo {
+    left: -10%;
+  }
+
+  #navSociallink {
+    position: absolute;
+    right: 0;
+    top: 20px;
+  }
+
+  .mobileBurgerMenu {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}
