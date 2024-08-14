@@ -189,6 +189,42 @@ body {
 #backBtn {
   background-color: rgb(219, 100, 21) !important;
 }
+/* Cart Sepet */
+.yourCartSepet {
+  position: fixed;
+  top: 0;
+  width: 440px;
+  right: -440px;
+  height: 100%;
+  background-color: #e7e1e1;
+  color: #0b0b0b;
+  transition: right 0.3s ease-in-out !important;
+  z-index: 1001;
+  padding: 10px 20px;
+}
+.cart-body {
+  border: 1px solid black;
+  border-radius: 15px;
+  margin-top: 5px;
+  filter: blur(1px);
+}
+.cartShoppıngBtn {
+  display: grid;
+  background-color: #d26d1b !important;
+  margin-top: 10px;
+  border-radius: 25px;
+  color: #fff !important;
+  font-weight: 600 !important;
+}
+#closeBtn {
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+
+.cartSepetShow {
+  right: 0 !important;
+}
+
 /* Responsive */
 @media (max-width: 1000px) {
   .navBrandLogo {

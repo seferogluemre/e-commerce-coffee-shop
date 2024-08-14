@@ -126,8 +126,19 @@ function sidebarSublinkShow() {
   });
 }
 
+function YourCartShow() {
+  document.getElementById("cartİcon").addEventListener("click", (event) => {
+    document.getElementById("yourCartSepet").classList.add("cartSepetShow");
+  });
+  document.getElementById("closeBtn").addEventListener("click", (event) => {
+    document.getElementById("yourCartSepet").classList.remove("cartSepetShow");
+  });
+  
+}
+
 document.addEventListener("DOMContentLoaded", (event) => {
   allProductRendered();
   ViewedProductsShow();
   sidebarSublinkShow();
+  YourCartShow();
 });
