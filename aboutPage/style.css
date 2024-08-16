@@ -1,0 +1,252 @@
+body {
+  font-size: 13px !important;
+
+  margin: 0;
+  padding: 0;
+}
+
+/* Mobile Sidebar */
+.offcanvas {
+  background-color: rgb(219, 100, 21) !important;
+  color: aliceblue !important;
+}
+.offcanvas-header {
+  border-bottom: 1px solid rgb(216, 200, 200);
+}
+.sidebarSocialMediaLink a {
+  padding-top: 60px !important;
+  color: white !important;
+}
+.sidebarLink li {
+  padding: 7px 0px !important;
+}
+
+/* Mobile Sidebar sublinks CSS */
+.sub-sidebar {
+  position: fixed;
+  top: 0;
+  left: -400px; /* Start hidden off-screen */
+  width: 400px;
+  height: 100%;
+  background-color: rgb(219, 100, 21) !important;
+  color: #fff;
+  transition: left 0.3s ease-in-out !important;
+  z-index: 1001;
+  padding: 20px;
+}
+.sub-sidebar a {
+  display: block;
+  padding: 15px;
+  color: #fff;
+  text-decoration: none;
+}
+.sub-sidebar a:hover {
+  background-color: #666;
+}
+.show-sidebar {
+  left: 0 !important;
+}
+.show-sub-sidebar {
+  left: 0 !important;
+}
+#backBtn {
+  background-color: rgb(219, 100, 21) !important;
+}
+
+/* Cart Sepet */
+.yourCartSepet {
+  position: fixed;
+  top: 0;
+  width: 440px;
+  right: -440px;
+  height: 100%;
+  background-color: #e7e1e1;
+  color: #0b0b0b;
+  transition: right 0.3s ease-in-out !important;
+  z-index: 1001;
+  padding: 10px 20px;
+}
+.cart-body {
+  border: 1px solid black;
+  border-radius: 15px;
+  margin-top: 5px;
+  filter: blur(1px);
+}
+.cartShoppıngBtn {
+  display: grid;
+  background-color: #d26d1b !important;
+  margin-top: 10px;
+  border-radius: 25px;
+  color: #fff !important;
+  font-weight: 600 !important;
+}
+#closeBtn {
+  margin-bottom: 25px;
+  cursor: pointer;
+}
+.cartSepetShow {
+  right: 0 !important;
+}
+
+/* Top Social Link */
+.topSocialLink {
+  background-color: rgb(235, 126, 2);
+  height: 45px;
+}
+.topSocialLink a {
+  color: white !important;
+  margin: 10px 15px;
+}
+/* Navbar css */
+.nav {
+  background-color: rgb(255, 241, 241);
+  height: 100px !important;
+  cursor: pointer;
+  font-size: 16px !important;
+}
+.nav .navBrandLogo {
+  position: relative;
+  top: -7px !important;
+  height: 130px;
+  width: 130px;
+  margin-left: 90px;
+}
+.navLinks {
+  margin: 0 !important;
+}
+.navLinks li {
+  position: relative;
+}
+.navLinks li::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background-color: #d26d1b; /* Alt çizgi rengi */
+  transition: width 0.3s ease-in-out;
+}
+.navLinks li:hover {
+  color: #d26d1b !important;
+}
+.navLinks li:hover::after {
+  width: 100%;
+}
+.cartNone {
+  position: relative;
+  right: 15px;
+  top: -7px;
+}
+/* About Section */
+.columnTwo {
+  padding: 180px !important;
+}
+/* Footer */
+.footerSection {
+  width: 100%;
+  background-color: rgb(255, 103, 32);
+  padding-top: 60px;
+  color: white !important;
+}
+.footerSection li {
+  padding: 7px 0px;
+  cursor: pointer;
+  font-size: 15px;
+}
+.footerSection .footerBrandLogo {
+  width: 160px;
+  height: 170px;
+}
+.footerSocialLinks a {
+  color: white;
+  padding: 5px 15px 5px 0px;
+}
+.footerEnd {
+  font-size: 15px;
+}
+.illuminationFooterLink {
+  color: #d26d1b;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 1000px) {
+  .navBrandLogo {
+    transform: translateX(15%);
+    height: 110px !important;
+  }
+  #navSociallink {
+    position: absolute;
+    right: 0;
+    top: 20px !important;
+  }
+  .mobileBurgerMenu {
+    position: absolute;
+    left: 5px;
+    top: 30px;
+    color: black;
+  }
+  .navLinks li {
+    display: none !important;
+  }
+  /* Footer Linkler gizlenip accordion gösterilmesi */
+  .Footerinstitutional {
+    display: none !important;
+  }
+  .accordion {
+    background-color: rgb(255, 103, 32);
+  }
+  .accordion-button {
+    border: none;
+    background-color: rgb(255, 103, 32);
+    text-align: left;
+    padding: 1rem;
+  }
+  .accordion-item {
+    border: none !important;
+  }
+  .accordion-body {
+    background-color: rgb(255, 103, 32) !important;
+    color: white !important;
+  }
+  .accordion-button {
+    border: none;
+    background-color: rgb(255, 103, 32) !important;
+    color: white;
+    text-align: left;
+    padding: 1rem;
+  }
+  .accordion-button:not(.collapsed) {
+    background-color: darkorange;
+  }
+  .accordion-button.collapsed {
+    background-color: rgb(255, 103, 32);
+  }
+  .columnTwo {
+    padding: 80px !important;
+  }
+  .mainSection img {
+    margin-bottom: 15px;
+  }
+}
+
+/* 1000px'den büyük ekranlar için */
+@media (min-width: 1000px) {
+  .navBrandLogo {
+    left: -10%;
+  }
+
+  #navSociallink {
+    position: absolute;
+    right: 0;
+    top: 20px;
+  }
+
+  .mobileBurgerMenu {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+}

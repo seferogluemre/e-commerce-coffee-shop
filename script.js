@@ -133,7 +133,6 @@ function YourCartShow() {
   document.getElementById("closeBtn").addEventListener("click", (event) => {
     document.getElementById("yourCartSepet").classList.remove("cartSepetShow");
   });
-  
 }
 
 document.addEventListener("DOMContentLoaded", (event) => {
