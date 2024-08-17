@@ -182,7 +182,7 @@ function allProductRender() {
     productRow.innerHTML = "";
   } else {
     AllProducts.forEach((product) => {
-      productRow.innerHTML += ` <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+      productRow.innerHTML += `<div class="col-lg-3 col-md-6 col-sm-6 mb-4 product-card" id="myCol">
                 <div class="card" data-price"${product.productPrice}">
                   <img
                     src="${product.productPicture}"
@@ -205,6 +205,7 @@ function allProductRender() {
 const productİnsideData = AllProducts.map((product) => {
   return product.productİnside;
 });
+
 const uniqueProductİnside = [...new Set(productİnsideData)];
 
 function createProductInsıdeCheckbox() {
@@ -240,6 +241,7 @@ function createProductInsıdeCheckbox() {
           type="checkbox"
           id="optionInside${index}"
           value="${productİnside}"
+          name="filterCheckbox"
         />
         <label class="form-check-label" for="optionInside${index}">
           ${productİnside}
@@ -294,6 +296,7 @@ function createCountryCheckbox() {
           type="checkbox"
           id="optionCountry${index}"
           value="${productCountry}"
+          name="filterCheckboxCountry"
         />
         <label class="form-check-label" for="optionCountry${index}">
           ${productCountry}
@@ -348,6 +351,7 @@ function createProductTastingNote() {
           type="checkbox"
           id="optionTastingNote${index}"
           value="${productTastingNote}"
+          name="filterCheckboxTastingnote"
         />
         <label class="form-check-label" for="optionTastingNote${index}">
           ${productTastingNote}
@@ -364,7 +368,242 @@ function createProductTastingNote() {
   filterCheckSection.innerHTML += checkboxTastingNoteHtml;
 }
 
-// Buraya İse Filtreleme Selectimize bi degerlendirmesi yüksek diye option eklencek ve ratingi 5 olan ürünler listelencek
+const productHightRating = AllProducts.filter((productRating) => {
+  let productRatings = productRating.productRating === "5";
+  return productRatings;
+});
+
+// Burda ise üstte filtreledigimiz ratingi 5 olan ürünler eleman olarak tutuluyor şimdi aşagıda ise o elemanları foreach döngüsüne sokup html kısmına template ile yansıttık
+let highRatingProductRendered = false;
+function highRatingProductRender(filterProduct) {
+  const productRow = document.getElementById("productRow");
+  if (highRatingProductRendered) {
+    productRow.innerHTML = "";
+    highRatingProductRendered = false;
+  } else {
+    productHightRating.forEach((productsFiltered) => {
+      productRow.innerHTML += ` <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+                <div class="card" data-price"${productsFiltered.productPrice}">
+                  <img
+                    src="${productsFiltered.productPicture}"
+                    class="card-img-top"
+                    alt="..."
+                  />
+                  <div class="card-body">
+                    <h6 class="card-title fw-lighter">${
+                      productsFiltered.productName
+                    }</h6>
+                    <p class="card-text">${getStars(
+                      productsFiltered.productRating
+                    )}</p>
+                    <p class="card-text py-2 fs-6">${
+                      productsFiltered.productPrice
+                    }.</p>
+                    <div > <a href="#" class="btn btn-primary">Sepete Ekle</a></div>
+                  </div>
+                </div>
+      </div>`;
+    });
+  }
+}
+
+// Burda ise seçilen selectin Valuesini kontrol edip Degerlendirmesi yüksek ise üstteki highRatingProductRating Fonksiyonunu Çagırdık.
+function highRatingSelectedValue() {
+  document
+    .getElementById("form-select")
+    .addEventListener("change", function () {
+      const selectValue = this.value;
+      if (selectValue === "highRating") {
+        document.getElementById("productRow").innerHTML = "";
+        highRatingProductRender(productHightRating);
+      } else {
+        document.getElementById("productRow").innerHTML = "";
+        allProductRender();
+      }
+    });
+}
+
+// -------------------------
+let allFilteredProducts = [];
+
+function filterProductsİnsideMe() {
+  // Tüm seçili checkbox'ların değerlerini topla
+  const selectedFilters = Array.from(
+    document.querySelectorAll('input[name="filterCheckbox"]:checked')
+  ).map((checkbox) => checkbox.value);
+
+  // Tüm filtrelenen ürünleri toplamak için boş bir dizi
+  allFilteredProducts = [];
+
+  selectedFilters.forEach((filterCheck) => {
+    const filtered = AllProducts.filter(
+      (product) => product.productİnside == filterCheck
+    );
+    allFilteredProducts = allFilteredProducts.concat(filtered);
+  });
+
+  // Filtrelenmiş ürünleri ekrana yazdır
+  document.getElementById("productRow").innerHTML = allFilteredProducts
+    .map(
+      (productFltr) =>
+        `<div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+          <div class="card" data-price="${productFltr.productPrice}">
+            <img
+              src="${productFltr.productPicture}"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h6 class="card-title fw-lighter">${productFltr.productName}</h6>
+              <p class="card-text">${getStars(productFltr.productRating)}</p>
+              <p class="card-text py-2 fs-6">${productFltr.productPrice}.</p>
+              <div><a href="#" class="btn btn-primary">Sepete Ekle</a></div>
+            </div>
+          </div>
+        </div>`
+    )
+    .join(" ");
+}
+
+function filterProductCountry() {
+  // Tüm seçili checkbox'ların değerlerini topla
+  const selectedFilters = Array.from(
+    document.querySelectorAll('input[name="filterCheckboxCountry"]:checked')
+  ).map((checkbox) => checkbox.value);
+
+  selectedFilters.forEach((filterCheck) => {
+    const filtered = AllProducts.filter(
+      (product) => product.productCountry == filterCheck
+    );
+    allFilteredProducts = allFilteredProducts.concat(filtered);
+  });
+
+  // Filtrelenmiş ürünleri ekrana yazdır
+  document.getElementById("productRow").innerHTML = allFilteredProducts
+    .map(
+      (productFltr) =>
+        `<div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+          <div class="card" data-price="${productFltr.productPrice}">
+            <img
+              src="${productFltr.productPicture}"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h6 class="card-title fw-lighter">${productFltr.productName}</h6>
+              <p class="card-text">${getStars(productFltr.productRating)}</p>
+              <p class="card-text py-2 fs-6">${productFltr.productPrice}.</p>
+              <div><a href="#" class="btn btn-primary">Sepete Ekle</a></div>
+            </div>
+          </div>
+        </div>`
+    )
+    .join(" ");
+}
+
+function filterProductTastingNote() {
+  // Tüm seçili checkbox'ların değerlerini topla
+  const selectedFilters = Array.from(
+    document.querySelectorAll('input[name="filterCheckboxTastingnote"]:checked')
+  ).map((checkbox) => checkbox.value);
+
+  selectedFilters.forEach((filterCheck) => {
+    const filtered = AllProducts.filter(
+      (product) => product.productTastingNote == filterCheck
+    );
+    allFilteredProducts = allFilteredProducts.concat(filtered);
+  });
+
+  // Filtrelenmiş ürünleri ekrana yazdır
+  document.getElementById("productRow").innerHTML = allFilteredProducts
+    .map(
+      (productFltr) =>
+        `<div class="col-lg-3 col-md-6 col-sm-6 mb-4">
+          <div class="card" data-price="${productFltr.productPrice}">
+            <img
+              src="${productFltr.productPicture}"
+              class="card-img-top"
+              alt="..."
+            />
+            <div class="card-body">
+              <h6 class="card-title fw-lighter">${productFltr.productName}</h6>
+              <p class="card-text">${getStars(productFltr.productRating)}</p>
+              <p class="card-text py-2 fs-6">${productFltr.productPrice}.</p>
+              <div><a href="#" class="btn btn-primary">Sepete Ekle</a></div>
+            </div>
+          </div>
+        </div>`
+    )
+    .join(" ");
+}
+
+const filterCheckSection = document.getElementById("filter-section");
+filterCheckSection.addEventListener("change", () => {
+  filterProductsİnsideMe();
+  filterProductCountry();
+  filterProductTastingNote();
+});
+
+function gridCardOne() {
+  document.getElementById("gridBtn").addEventListener("click", () => {
+    let elements = document
+      .getElementById("productRow")
+      .getElementsByClassName("col-lg-3");
+
+    // Önce tüm 'gridOne' sınıflarını kaldırın
+    for (let element of elements) {
+      element.classList.remove("gridTwo");
+      element.classList.add("gridOne");
+    }
+  });
+}
+
+function gridCardTwo() {
+  document.getElementById("gridBtnTwo").addEventListener("click", () => {
+    let elements = document
+      .getElementById("productRow")
+      .getElementsByClassName("col-lg-3");
+
+    for (let element of elements) {
+      element.classList.remove("gridOne");
+      element.classList.add("gridTwo");
+    }
+  });
+}
+
+document.getElementById("form-select").addEventListener("change", function () {
+  let selectedValue = this.value; // Seçilen value değerini allet sortedProducts;
+
+  // Ürünleri fiyatlarına göre filtrele
+  sortedProducts = AllProducts.slice().sort(function (a, b) {
+    if (selectedValue === "lowToHigh") {
+      return a.productPrice - b.productPrice; // Fiyatı düşükten yükseğe sıralama
+    } else if (selectedValue === "highToLow") {
+      return b.productPrice - a.productPrice; // Fiyatı yüksekten düşüğe sıralama
+    }
+  });
+
+  console.log(sortedProducts);
+  // sortedProducts dizisini istediğiniz şekilde kullanabilirsiniz, örneğin kartları yeniden render etmek için
+});
+
+document.getElementById("form-select").addEventListener('change', function () {
+  let selectedValue = this.value; // Seçilen value değerini allet sortedProducts;
+
+  // Ürünleri fiyatlarına göre sıralama işlemi
+  sortedProducts = AllProducts.slice().sort(function (a, b) {
+      if (selectedValue === "lowToHigh") {
+          return a.productPrice - b.productPrice; // Fiyatı düşükten yükseğe sıralama
+      } else if (selectedValue === "highToLow") {
+          return b.productPrice - a.productPrice; // Fiyatı yüksekten düşüğe sıralama
+      } else {
+          return0; // Diğer durumlar için sıralama yapma
+      }
+  });
+
+  console.log(sortedProducts);
+  // sortedProducts dizisini istediğiniz şekilde kullanabilirsiniz, örneğin kartları yeniden render etmek için
+});
 
 
 document.addEventListener("DOMContentLoaded", (event) => {
@@ -374,4 +613,7 @@ document.addEventListener("DOMContentLoaded", (event) => {
   createProductInsıdeCheckbox();
   createCountryCheckbox();
   createProductTastingNote();
+  highRatingSelectedValue();
+  gridCardOne();
+  gridCardTwo();
 });
