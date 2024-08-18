@@ -22,9 +22,9 @@ function YourCartShow() {
     document.getElementById("yourCartSepet").classList.remove("cartSepetShow");
   });
 }
-
 const AllProducts = [
   {
+    productId: "1",
     productPicture:
       "https://cdn.myikas.com/images/23326af2-7e3b-4ec5-b3d4-602b54e0332d/b21da833-09fa-4215-8dc3-9e4b8c1798c5/2560/nicaragua-san-jose-250gr-3.webp",
     productName: "Gloria Jean'S Nikaragua 250gr",
@@ -33,8 +33,10 @@ const AllProducts = [
     productİnside: "Orta-Yumuşak",
     productCountry: "Nikaragua",
     productTastingNote: "Bergamot",
+    productQuantity: "1",
   },
   {
+    productId: "2",
     productPicture:
       "https://cdn.myikas.com/images/23326af2-7e3b-4ec5-b3d4-602b54e0332d/c92967da-e5e7-4512-8179-a86c1d8d06a8/540/ethiopia-yirgacheffe-250gr-3.webp",
     productName: "Gloria Jean'S Ethiopia Yirgacheffe 250gr",
@@ -43,8 +45,10 @@ const AllProducts = [
     productİnside: "Yogun",
     productCountry: "Ethiopia",
     productTastingNote: "Kakao",
+    productQuantity: "1",
   },
   {
+    productId: "3",
     productPicture:
       "https://cdn.myikas.com/images/23326af2-7e3b-4ec5-b3d4-602b54e0332d/b351a0f2-1d7f-436c-8fdf-c724a24ef310/540/columbia-la-manuela-250gr-3.webp",
     productName: "Gloria Jean'S Colombia La Manuela 250gr",
@@ -53,8 +57,10 @@ const AllProducts = [
     productİnside: "Yumuşak",
     productCountry: "Colombia",
     productTastingNote: "Esmer Şeker",
+    productQuantity: "1",
   },
   {
+    productId: "4",
     productPicture:
       "https://cdn.myikas.com/images/23326af2-7e3b-4ec5-b3d4-602b54e0332d/cc207cc2-724e-47df-a089-7d6b005ec51c/2560/gj-tk-1.webp",
     productName: "Gloria Jean's Türk Kahvesi 500gr",
@@ -63,8 +69,10 @@ const AllProducts = [
     productİnside: "Orta-Yumuşak",
     productCountry: "Türkiye",
     productTastingNote: "Kakao",
+    productQuantity: "1",
   },
   {
+    productId: "5",
     productPicture:
       "https://cdn.myikas.com/images/23326af2-7e3b-4ec5-b3d4-602b54e0332d/28b482db-aa61-4d48-a320-2f270489155b/2560/brazil-soracabana-250gr-3.webp",
     productName: "Gloria Jean's Brazilya  Soracabana 250gr",
@@ -73,8 +81,10 @@ const AllProducts = [
     productİnside: "Yogun",
     productCountry: "Brazilya",
     productTastingNote: "Meyvemsi",
+    productQuantity: "1",
   },
   {
+    productId: "6",
     productPicture:
       "https://cdn.myikas.com/images/23326af2-7e3b-4ec5-b3d4-602b54e0332d/b21da833-09fa-4215-8dc3-9e4b8c1798c5/540/nicaragua-san-jose-250gr-3.webp",
     productName: "Gloria Jean's Nikaragua 250gr",
@@ -83,8 +93,10 @@ const AllProducts = [
     productİnside: "Yogun",
     productCountry: "Nikaragua",
     productTastingNote: "Kakao",
+    productQuantity: "1",
   },
   {
+    productId: "7",
     productPicture:
       "https://cdn.myikas.com/images/23326af2-7e3b-4ec5-b3d4-602b54e0332d/1b0c4eb2-dd90-4962-972e-3ff0ca127041/540/gjeb-1.webp",
     productName: "Gloria Jean's Glorious Blend 1000gr",
@@ -93,8 +105,10 @@ const AllProducts = [
     productİnside: "Yumuşak",
     productCountry: "Colombia",
     productTastingNote: "Topraksı",
+    productQuantity: "1",
   },
   {
+    productId: "8",
     productPicture:
       "https://cdn.myikas.com/images/23326af2-7e3b-4ec5-b3d4-602b54e0332d/324fd78c-6ce3-4cd1-8ee8-429c96e5da2a/1080/houndras-san-andres-250gr-3.webp",
     productName: "Gloria Jean'S Honduras San Andreas 250gr",
@@ -103,8 +117,10 @@ const AllProducts = [
     productİnside: "Yogun",
     productCountry: "Honduras",
     productTastingNote: "Esmer Şeker",
+    productQuantity: "1",
   },
   {
+    productId: "9",
     productPicture:
       "https://cdn.myikas.com/images/23326af2-7e3b-4ec5-b3d4-602b54e0332d/a2b0a322-2fac-46a0-bdcb-68241f27ceb8/1080/papua-new-guinea-250gr-3.webp",
     productName: "Gloria Jean'S Papua Yeni Gine Estate Sigri 250gr",
@@ -113,8 +129,10 @@ const AllProducts = [
     productİnside: "Yogun",
     productCountry: "Papua Yeni Gine",
     productTastingNote: "Meyvemsi",
+    productQuantity: "1",
   },
   {
+    productId: "10",
     productPicture:
       "https://cdn.myikas.com/images/23326af2-7e3b-4ec5-b3d4-602b54e0332d/554a8bd0-a6a7-4231-b29f-464f1854335b/1080/glorious-belnd-250gr-3.webp",
     productName: "Gloria Jean's Glorious Blend 250gr",
@@ -123,8 +141,10 @@ const AllProducts = [
     productİnside: "Orta-Yumuşak",
     productCountry: "Brazilya",
     productTastingNote: "Çikolata",
+    productQuantity: "1",
   },
   {
+    productId: "11",
     productPicture:
       "https://cdn.myikas.com/images/23326af2-7e3b-4ec5-b3d4-602b54e0332d/b1019301-1381-4a3b-95c8-34260ceec2d2/1080/special-espresso-blend-250gr-3.webp",
     productName: "Gloria Jean's Special Espresso Blend 250gr",
@@ -133,8 +153,10 @@ const AllProducts = [
     productİnside: "Yumuşak",
     productCountry: "Ethiopia",
     productTastingNote: "Çikolata",
+    productQuantity: "1",
   },
   {
+    productId: "12",
     productPicture:
       "https://cdn.myikas.com/images/23326af2-7e3b-4ec5-b3d4-602b54e0332d/b21da833-09fa-4215-8dc3-9e4b8c1798c5/540/nicaragua-san-jose-250gr-3.webp",
     productName: "Gloria Jean's Glorious Blend 1000gr",
@@ -143,8 +165,10 @@ const AllProducts = [
     productİnside: "Orta-Yumuşak",
     productCountry: "Honduras",
     productTastingNote: "Meyvemsi",
+    productQuantity: "1",
   },
   {
+    productId: "13",
     productPicture:
       "https://cdn.myikas.com/images/23326af2-7e3b-4ec5-b3d4-602b54e0332d/c8b819d8-3596-43ec-bef8-aa9c9a5d0745/1080/special-espresso-blend-1000gr-3.webp",
     productName: "Gloria Jean's Special Espresso Blend 1000gr",
@@ -153,6 +177,7 @@ const AllProducts = [
     productİnside: "Yumuşak",
     productCountry: "Ethiopia",
     productTastingNote: "Çikolata",
+    productQuantity: "1",
   },
 ];
 function getStars(rating) {
@@ -174,6 +199,7 @@ function getStars(rating) {
   return stars;
 }
 
+// Hem Kartları yansıtıp hemde Olay dinleyici ekleyerek sepete ekleme işlemimizi yaptık
 let productRender = false;
 function allProductRender() {
   const productRow = document.getElementById("productRow");
@@ -183,7 +209,7 @@ function allProductRender() {
   } else {
     AllProducts.forEach((product) => {
       productRow.innerHTML += `<div class="col-lg-3 col-md-6 col-sm-6 mb-4 product-card" id="myCol">
-                <div class="card" data-price"${product.productPrice}">
+                <div class="card" data-id="${product.productId}">
                   <img
                     src="${product.productPicture}"
                     class="card-img-top"
@@ -193,15 +219,97 @@ function allProductRender() {
                     <h6 class="card-title fw-lighter">${
                       product.productName
                     }</h6>
-                    <p class="card-text">${getStars(product.productRating)}</p>
-                    <p class="card-text py-2 fs-6">${product.productPrice}.</p>
-                    <div > <a href="#" class="btn btn-primary">Sepete Ekle</a></div>
+                    <p class="card-text productRating">${getStars(
+                      product.productRating
+                    )}</p>
+                    <p class="card-text productPrice py-2 fs-6">${
+                      product.productPrice
+                    }.</p>
+                     <a href="#" class="btn btn-primary add-To-Cart" >Sepete Ekle</a>
                   </div>
                 </div>
-              </div>`;
+        </div>`;
     });
   }
+  const cartItems = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const productLength = cartItems.length;
+
+  document.querySelectorAll(".add-To-Cart").forEach((button) => {
+    button.addEventListener("click", function () {
+      const card = this.closest(".card");
+      const cardId = card.getAttribute("data-id");
+      const cardName = card.querySelector(".card-title").textContent;
+      const cardPrice = card.querySelector(".productPrice").textContent;
+      const productPicture = card.querySelector(".card-img-top").src;
+
+      const existingProductIndex = cartItems.findIndex(
+        (item) => item.id === cardId
+      );
+
+      if (existingProductIndex !== -1) {
+        cartItems[existingProductIndex].quantity += 1;
+      } else {
+        const product = {
+          id: cardId,
+          name: cardName,
+          price: cardPrice,
+          picture: productPicture,
+          quantity: 1,
+        };
+        cartItems.push(product);
+      }
+
+      localStorage.setItem("cartItems", JSON.stringify(cartItems));
+
+      alert(`Harika ${cardName} adlı ürünü sepetinize eklediniz`);
+      location.reload();
+    });
+  });
 }
+
+function getLocalData() {
+  const cart = document.getElementById("cartRowOne");
+  const storedData = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const rowHtml = document.getElementById("cartProductRows");
+  const dataLength = storedData.length;
+
+  if (dataLength > 0) {
+    cart.classList.add("cartHide");
+    document.getElementById("clearCart").style.display = "block";
+    storedData.forEach((data) => {
+      rowHtml.innerHTML += `
+        <div class="row mb-4  ">
+          <div class="col-lg-4"><img class="img-fluid h-100 cardImage" src="${data.picture}"></div>
+          <div class="col-lg-8">
+            <p class="card-text">${data.name}</p>
+            <div>
+               <p class="cardPrice">Fiyat: ${data.price}</p>
+            </div>
+            <div>
+              <h6>Ürün Adedi:  ${data.quantity}</h6>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+  } else {
+    cart.classList.remove("cartHide");
+    document.getElementById("clearCart").style.display = "none";
+    document.getElementById("closeBtnTwo").classList.add("closeBtnTwo");
+  }
+}
+
+function clearData() {
+  location.reload();
+  localStorage.clear();
+  document.getElementById("cartProductRows").innerHTML = "";
+  document.getElementById("cartRowOne").classList.remove("cartHide");
+}
+document.getElementById("closeBtnTwo").addEventListener("click", (event) => {
+  document.getElementById("yourCartSepet").classList.remove("cartSepetShow");
+});
+// Bitişi Buradadır!-----------------------------------------------
+
 const productİnsideData = AllProducts.map((product) => {
   return product.productİnside;
 });
@@ -571,41 +679,6 @@ function gridCardTwo() {
   });
 }
 
-document.getElementById("form-select").addEventListener("change", function () {
-  let selectedValue = this.value; // Seçilen value değerini allet sortedProducts;
-
-  // Ürünleri fiyatlarına göre filtrele
-  sortedProducts = AllProducts.slice().sort(function (a, b) {
-    if (selectedValue === "lowToHigh") {
-      return a.productPrice - b.productPrice; // Fiyatı düşükten yükseğe sıralama
-    } else if (selectedValue === "highToLow") {
-      return b.productPrice - a.productPrice; // Fiyatı yüksekten düşüğe sıralama
-    }
-  });
-
-  console.log(sortedProducts);
-  // sortedProducts dizisini istediğiniz şekilde kullanabilirsiniz, örneğin kartları yeniden render etmek için
-});
-
-document.getElementById("form-select").addEventListener('change', function () {
-  let selectedValue = this.value; // Seçilen value değerini allet sortedProducts;
-
-  // Ürünleri fiyatlarına göre sıralama işlemi
-  sortedProducts = AllProducts.slice().sort(function (a, b) {
-      if (selectedValue === "lowToHigh") {
-          return a.productPrice - b.productPrice; // Fiyatı düşükten yükseğe sıralama
-      } else if (selectedValue === "highToLow") {
-          return b.productPrice - a.productPrice; // Fiyatı yüksekten düşüğe sıralama
-      } else {
-          return0; // Diğer durumlar için sıralama yapma
-      }
-  });
-
-  console.log(sortedProducts);
-  // sortedProducts dizisini istediğiniz şekilde kullanabilirsiniz, örneğin kartları yeniden render etmek için
-});
-
-
 document.addEventListener("DOMContentLoaded", (event) => {
   sidebarSublinkShow();
   YourCartShow();
@@ -616,4 +689,5 @@ document.addEventListener("DOMContentLoaded", (event) => {
   highRatingSelectedValue();
   gridCardOne();
   gridCardTwo();
+  getLocalData();
 });

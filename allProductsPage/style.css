@@ -195,6 +195,29 @@ body {
   max-width: 25.00% !important;
 }
 
+#productsRowEnd .card{
+  width: 33% !important;
+  flex: 0 0 33%;
+  height: 450px !important;
+}
+
+.cartHide{
+  display: none !important;
+}
+#productsRowEnd .cardImage{
+  width: 500px !important;
+}
+.productsRowEnd{
+  border-bottom: 1px solid #666 !important;
+}
+.countShow{
+  display: block !important;
+}
+.closeBtnTwo{
+  display: none !important;
+}
+
+
 /* Responsive */
 @media (max-width: 1000px) {
   .navBrandLogo {
