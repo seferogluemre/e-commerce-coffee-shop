@@ -52,6 +52,31 @@ body {
 #backBtn {
   background-color: rgb(219, 100, 21) !important;
 }
+/* Accordion Filter Sidebar */
+.filterAccordionSidebar{
+  position: fixed;
+  top: 0;
+  width: 300px;
+  right: -300px;
+  height: 100%;
+  background-color: #e6edee;
+  color: #0b0b0b;
+  transition: right 0.3s ease-in-out !important;
+  z-index: 1001;
+  padding: 10px 20px;
+}
+
+.filterAccordionSidebarShow{
+  right: 0 !important;
+}
+
+.filterAccordionSidebar svg{
+  position: absolute;
+  bottom: 15px;
+  left: 40%;
+  cursor: pointer;
+}
+
 
 /* Cart Sepet */
 .yourCartSepet {
@@ -60,7 +85,7 @@ body {
   width: 400px;
   right: -400px;
   height: 100%;
-  background-color: #e7e1e1;
+  background-color: #fffdfd;
   color: #0b0b0b;
   transition: right 0.3s ease-in-out !important;
   z-index: 1001;
@@ -186,37 +211,60 @@ body {
   text-decoration: none;
   cursor: pointer;
 }
-.gridOne{
+.gridOne {
   flex: 0 0 33.33% !important;
   max-width: 33.33% !important;
 }
-.gridTwo{
-  flex: 0 0 25.00% !important;
-  max-width: 25.00% !important;
+.gridTwo {
+  flex: 0 0 25% !important;
+  max-width: 25% !important;
 }
 
-#productsRowEnd .card{
+#productsRowEnd .card {
   width: 33% !important;
   flex: 0 0 33%;
   height: 450px !important;
 }
 
-.cartHide{
+.cartHide {
   display: none !important;
 }
-#productsRowEnd .cardImage{
+#productsRowEnd .cardImage {
   width: 500px !important;
 }
-.productsRowEnd{
-  border-bottom: 1px solid #666 !important;
-}
-.countShow{
+
+.countShow {
   display: block !important;
 }
-.closeBtnTwo{
+.closeBtnTwo {
   display: none !important;
 }
+.filter-section .accordion-button:not(.collapsed) {
+  background-color: white !important; 
+  color: #000 !important; 
+}
+.filter-section .accordion-button {
+  margin-top: 20px;
+  border: none !important; 
+  box-shadow: none !important; 
+  background-color: white; 
+  color: #000; 
+}
 
+.filter-section .accordion-button:focus {
+  box-shadow: none !important;
+}
+ 
+.filter-section .accordion-item {
+  border: none !important; 
+}
+.btnFilter{
+  background-color: #d26d1b;
+  color: white;
+  border: none;
+  padding: 15px 20px;
+  border-radius: 15px;
+}
 
 /* Responsive */
 @media (max-width: 1000px) {
@@ -281,16 +329,27 @@ body {
     width: 50% !important;
     padding-right: 0;
   }
-  .form-select{
+  .form-select {
     margin-top: 20px;
+    width: 50% !important;
   }
-  #gridBtn{
+  #gridBtn {
     display: none !important;
   }
-  #gridBtnTwo{
+  #gridBtnTwo {
     display: none !important;
   }
-
+  #productsRowEnd .card {
+    width: 33% !important;
+    flex: 0 0 33%;
+    height: 450px !important;
+  }
+  #productsRowEnd .cardImage {
+    width: 300px !important;
+  }
+  #filter-section{
+    display: none !important;
+  }
 }
 
 /* 1000px'den büyük ekranlar için */
