@@ -59,12 +59,6 @@ function getLocalData() {
   }
 }
 
-function clearData() {
-  location.reload();
-  localStorage.clear();
-  document.getElementById("cartProductRows").innerHTML = "";
-  document.getElementById("cartRowOne").classList.remove("cartHide");
-}
 
 const allProductsRow = document.getElementById("allProducts");
 let ProductRendered = false;

@@ -271,6 +271,37 @@ body {
   border-radius: 15px;
 }
 
+.searchBox {
+  position: fixed; /* Ya da 'fixed', ihtiyaçlarınıza göre */
+  top: 0;
+  left: 0;
+  width: 100%; /* Ekranı tamamen kaplaması için */
+  height: 0;
+  z-index: 1000;
+  overflow: hidden;
+  background-color: #ebe6e0; /* Arka plan rengini ihtiyaçlarınıza göre ayarlayın */
+  transition: height 0.4s ease-in;
+}
+.is-hidden {
+  display: none;
+}
+.searchBox.show {
+  height: 250px; /* Yüksekliği 100px olacak */
+}
+.searchBoxBrandLogo {
+  width: 100px;
+  height: 100px;
+  border-radius: 25px;
+}
+.searchBox.hide {
+  height: 0 !important;
+}
+#hideBtn {
+  background-color: #d26d1b;
+  border: none;
+  color: white;
+  margin-top: 5px;
+}
 /* Responsive */
 @media (max-width: 1000px) {
   .navBrandLogo {
@@ -366,6 +397,25 @@ body {
     padding-top: 8%;
     width: 45% !important;
     flex: 0 0 50%;
+  }
+  .searchBox .col-sm-4 {
+    width: 10% !important;
+    flex: 0 0 33.33% !important;
+  }
+  .input-group-text {
+    display: none !important;
+  }
+  .searchBox {
+    width: 100% !important;
+  }
+  #hideBtn {
+    position: absolute;
+    top: 30px;
+    padding: 0;
+    right: 20px;
+  }
+  .searchBox .form-label {
+    display: none !important;
   }
 }
 

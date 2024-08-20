@@ -75,12 +75,6 @@ function getLocalData() {
     document.getElementById("closeBtnTwo").classList.add("closeBtnTwo");
   }
 }
-function clearData() {
-  localStorage.clear();
-  document.getElementById("cartProductRows").innerHTML = "";
-  document.getElementById("cartRowOne").classList.remove("cartHide");
-  location.reload;
-}
 
 
 

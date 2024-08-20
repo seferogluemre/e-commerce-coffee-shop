@@ -14,6 +14,58 @@ function sidebarSublinkShow() {
   });
 }
 
+function searchBoxToggle() {
+  document
+    .getElementById("toggleButton")
+    .addEventListener("click", function () {
+      const searchBox = document.querySelector(".searchBox");
+      if (searchBox.classList.contains("show")) {
+        searchBox.classList.remove("show");
+        searchBox.style.height = "0";
+      } else {
+        searchBox.classList.add("show");
+        searchBox.style.height = "100px"; // Div'in gerçek yüksekliği burada olmalı
+      }
+    });
+
+  const searchBox = document.querySelector(".searchBox");
+
+  document.getElementById("hideBtn").addEventListener("click", () => {
+    searchBox.style.height = "0";
+    searchBox.classList.remove("show");
+  });
+
+  document.addEventListener("click", function (event) {
+    const toggleButton = document.getElementById("toggleButton");
+    if (
+      !searchBox.contains(event.target) && // Tıklanan yer searchBox'ın içinde değilse
+      !toggleButton.contains(event.target) // Tıklanan yer toggleButton'un içinde değilse
+    ) {
+      searchBox.style.height = "0";
+      searchBox.classList.remove("show");
+    }
+  });
+}
+
+function searchCardIncludes() {
+  const searchInput = document.getElementById("searchInput");
+  const cards = document.querySelectorAll(".card");
+
+  searchInput.addEventListener("keyup", function () {
+    const searchTerm = searchInput.value.toLowerCase();
+    cards.forEach((card) => {
+      const cardTitle = card
+        .querySelector(".card-title")
+        .textContent.toLowerCase();
+      if (cardTitle.includes(searchTerm)) {
+        card.parentElement.style.display = "";
+      } else {
+        card.parentElement.innerHTML = ``;
+      }
+    });
+  });
+}
+
 function YourCartShow() {
   const sidebar = document.getElementById("yourCartSepet");
   const cartIcon = document.getElementById("cartİcon");
@@ -850,4 +902,6 @@ document.addEventListener("DOMContentLoaded", (event) => {
   getLocalData();
   FilterAccordionSidebarToggle();
   FilterAccordionShow();
+  searchBoxToggle();
+  searchCardIncludes();
 });

@@ -104,6 +104,9 @@ function YourCartShow() {
   document.getElementById("closeBtn").addEventListener("click", (event) => {
     document.getElementById("yourCartSepet").classList.remove("cartSepetShow");
   });
+  document.getElementById("closeBtnTwo").addEventListener("click", (event) => {
+    document.getElementById("yourCartSepet").classList.remove("cartSepetShow");
+  });
 }
 
 function populateCountrySelect() {
@@ -163,15 +166,6 @@ function getLocalData() {
     document.getElementById("closeBtnTwo").classList.add("closeBtnTwo");
   }
 }
-function clearData() {
-  localStorage.clear();
-  document.getElementById("cartProductRows").innerHTML = "";
-  document.getElementById("cartRowOne").classList.remove("cartHide");
-  location.reload;
-}
-
-
-
 
 document.addEventListener("DOMContentLoaded", (event) => {
   sidebarSublinkShow();
@@ -179,5 +173,4 @@ document.addEventListener("DOMContentLoaded", (event) => {
   populateCountrySelect();
   updateFlag();
   getLocalData();
-  clearData();
 });
