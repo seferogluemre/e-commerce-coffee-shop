@@ -537,6 +537,9 @@ function FilterAccordionShow() {
             <div class="card" data-price="${
               productFltr.productPrice
             }" data-id=${productFltr.productId}>
+              <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" id="favoritesİcon" fill="currentColor" class="bi bi-balloon-heart-fill favoritesİcon" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8.49 10.92C19.412 3.382 11.28-2.387 8 .986 4.719-2.387-3.413 3.382 7.51 10.92l-.234.468a.25.25 0 1 0 .448.224l.04-.08c.009.17.024.315.051.45.068.344.208.622.448 1.102l.013.028c.212.422.182.85.05 1.246-.135.402-.366.751-.534 1.003a.25.25 0 0 0 .416.278l.004-.007c.166-.248.431-.646.588-1.115.16-.479.212-1.051-.076-1.629-.258-.515-.365-.732-.419-1.004a2 2 0 0 1-.037-.289l.008.017a.25.25 0 1 0 .448-.224l-.235-.468ZM6.726 1.269c-1.167-.61-2.8-.142-3.454 1.135-.237.463-.36 1.08-.202 1.85.055.27.467.197.527-.071.285-1.256 1.177-2.462 2.989-2.528.234-.008.348-.278.14-.386"/>
+</svg>
               <img
                 src="${productFltr.productPicture}"
                 class="card-img-top"
@@ -558,6 +561,7 @@ function FilterAccordionShow() {
       )
       .join("");
 
+    addToFavorites();
     setProductData();
   }
 
@@ -582,6 +586,10 @@ function allProductRender() {
     AllProducts.forEach((product) => {
       productRow.innerHTML += `<div class="col-lg-3 col-md-6 col-sm-6 mb-4 product-card" id="myCol">
                 <div class="card" data-id="${product.productId}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" id="favoritesİcon" fill="currentColor" class="bi bi-balloon-heart-fill favoritesİcon" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8.49 10.92C19.412 3.382 11.28-2.387 8 .986 4.719-2.387-3.413 3.382 7.51 10.92l-.234.468a.25.25 0 1 0 .448.224l.04-.08c.009.17.024.315.051.45.068.344.208.622.448 1.102l.013.028c.212.422.182.85.05 1.246-.135.402-.366.751-.534 1.003a.25.25 0 0 0 .416.278l.004-.007c.166-.248.431-.646.588-1.115.16-.479.212-1.051-.076-1.629-.258-.515-.365-.732-.419-1.004a2 2 0 0 1-.037-.289l.008.017a.25.25 0 1 0 .448-.224l-.235-.468ZM6.726 1.269c-1.167-.61-2.8-.142-3.454 1.135-.237.463-.36 1.08-.202 1.85.055.27.467.197.527-.071.285-1.256 1.177-2.462 2.989-2.528.234-.008.348-.278.14-.386"/>
+</svg>
+
                   <img
                     src="${product.productPicture}"
                     class="card-img-top"
@@ -650,6 +658,52 @@ document.getElementById("closeBtnTwo").addEventListener("click", (event) => {
   document.getElementById("yourCartSepet").classList.remove("cartSepetShow");
 });
 // Bitişi Buradadır!-----------------------------------------------
+function showAlert(productDataName) {
+  const alert = document.getElementById("alert");
+  alert.classList.remove("d-none");
+  alert.innerHTML = `Harika! ${productDataName} favorilere eklendi`;
+
+  // 2 saniye (2000 ms) sonra uyarıyı gizlemek için setTimeout kullanıyoruz
+  setTimeout(() => {
+    alert.classList.add("d-none");
+  }, 3000);
+}
+
+// Favoriye ekleme
+function addToFavorites() {
+  const favoriteBtn = document.querySelectorAll(".favoritesİcon");
+  favoriteBtn.forEach((btn) => {
+    btn.addEventListener("click", (event) => {
+      const card = event.target.closest(".card");
+      const productId = card.getAttribute("data-id");
+      const productName = card.querySelector(".card-title").textContent;
+      const productPrice = card.querySelector(".card-text").textContent;
+      const productPicture = card.querySelector(".card-img-top").src;
+
+      const productDetails = {
+        id: productId,
+        name: productName,
+        price: productPrice,
+        picture: productPicture,
+        quantity: 1,
+      };
+
+      // Mevcut favorileri al
+      let favorites = JSON.parse(localStorage.getItem("favorites")) || [];
+
+      // Eğer kart zaten favorilere eklenmişse, yeniden ekleme
+      const isFavorite = favorites.some((fav) => fav.id === productId);
+      if (!isFavorite) {
+        favorites.push(productDetails);
+        localStorage.setItem("favorites", JSON.stringify(favorites));
+        showAlert(productDetails.name);
+      }
+
+      document.getElementById("count").textContent = favorites.length;
+      document.getElementById("favorite-count").style.display = "block";
+    });
+  });
+}
 
 // Product Inside Data
 const productİnsideData = AllProducts.map((product) => {
@@ -827,6 +881,10 @@ function highRatingProductRender(filterProduct) {
                 <div class="card" data-id=${
                   productsFiltered.productId
                 } data-price"${productsFiltered.productPrice}">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="35" height="35" id="favoritesİcon" fill="currentColor" class="bi bi-balloon-heart-fill favoritesİcon" viewBox="0 0 16 16">
+  <path fill-rule="evenodd" d="M8.49 10.92C19.412 3.382 11.28-2.387 8 .986 4.719-2.387-3.413 3.382 7.51 10.92l-.234.468a.25.25 0 1 0 .448.224l.04-.08c.009.17.024.315.051.45.068.344.208.622.448 1.102l.013.028c.212.422.182.85.05 1.246-.135.402-.366.751-.534 1.003a.25.25 0 0 0 .416.278l.004-.007c.166-.248.431-.646.588-1.115.16-.479.212-1.051-.076-1.629-.258-.515-.365-.732-.419-1.004a2 2 0 0 1-.037-.289l.008.017a.25.25 0 1 0 .448-.224l-.235-.468ZM6.726 1.269c-1.167-.61-2.8-.142-3.454 1.135-.237.463-.36 1.08-.202 1.85.055.27.467.197.527-.071.285-1.256 1.177-2.462 2.989-2.528.234-.008.348-.278.14-.386"/>
+</svg>
+
                   <img
                     src="${productsFiltered.productPicture}"
                     class="card-img-top"
@@ -847,6 +905,7 @@ function highRatingProductRender(filterProduct) {
                 </div>
       </div>`;
       setProductData();
+      addToFavorites();
     });
   }
 }
@@ -904,4 +963,5 @@ document.addEventListener("DOMContentLoaded", (event) => {
   FilterAccordionShow();
   searchBoxToggle();
   searchCardIncludes();
+  addToFavorites();
 });

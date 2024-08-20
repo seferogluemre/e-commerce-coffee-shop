@@ -302,6 +302,30 @@ body {
   color: white;
   margin-top: 5px;
 }
+
+.favoritesİcon {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  display: none;
+  transition: 0.3s display ease-in-out !important;
+  cursor: pointer;
+  color: red;
+}
+.card:hover .favoritesİcon {
+  display: block;
+}
+.favorite-count {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #f1c40f !important;
+  padding: 10px 20px;
+  border-radius: 10px;
+  display: none;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+}
+
 /* Responsive */
 @media (max-width: 1000px) {
   .navBrandLogo {
