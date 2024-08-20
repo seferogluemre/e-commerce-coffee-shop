@@ -20,7 +20,19 @@ body {
 .sidebarLink li {
   padding: 7px 0px !important;
 }
+.cartHide {
+  display: none !important;
+}
+#productsRowEnd .cardImage {
+  width: 500px !important;
+}
 
+.countShow {
+  display: block !important;
+}
+.closeBtnTwo {
+  display: none !important;
+}
 /* Mobile Sidebar sublinks CSS */
 .sub-sidebar {
   position: fixed;

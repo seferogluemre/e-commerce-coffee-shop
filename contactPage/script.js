@@ -131,10 +131,53 @@ function updateFlag() {
 }
 
 document.getElementById("country").addEventListener("change", updateFlag);
+function getLocalData() {
+  const cart = document.getElementById("cartRowOne");
+  const storedData = JSON.parse(localStorage.getItem("cartItems")) || [];
+  const rowHtml = document.getElementById("cartProductRows");
+  const dataLength = storedData.length;
+  const dataCount = document.getElementById("productLength");
+
+  if (dataLength > 0) {
+    cart.classList.add("cartHide");
+    document.getElementById("clearCart").style.display = "block";
+    storedData.forEach((data) => {
+      rowHtml.innerHTML += `
+        <div class="row mb-4">
+          <div class="col-lg-4 col-sm-4"><img class="img-fluid h-100 cardImage" src="${data.picture}"></div>
+          <div class="col-lg-8 col-sm-8">
+            <p class="card-text">${data.name}</p>
+            <div>
+               <p class="cardPrice">Fiyat: ${data.price}</p>
+            </div>
+            <div>
+              <h6>Ürün Adedi:  ${data.quantity}</h6>
+            </div>
+          </div>
+        </div>
+      `;
+    });
+  } else {
+    cart.classList.remove("cartHide");
+    document.getElementById("clearCart").style.display = "none";
+    document.getElementById("closeBtnTwo").classList.add("closeBtnTwo");
+  }
+}
+function clearData() {
+  localStorage.clear();
+  document.getElementById("cartProductRows").innerHTML = "";
+  document.getElementById("cartRowOne").classList.remove("cartHide");
+  location.reload;
+}
+
+
+
 
 document.addEventListener("DOMContentLoaded", (event) => {
   sidebarSublinkShow();
   YourCartShow();
   populateCountrySelect();
   updateFlag();
+  getLocalData();
+  clearData();
 });

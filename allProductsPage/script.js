@@ -104,8 +104,8 @@ const AllProducts = [
     productId: "6",
     productPicture:
       "https://cdn.myikas.com/images/23326af2-7e3b-4ec5-b3d4-602b54e0332d/b21da833-09fa-4215-8dc3-9e4b8c1798c5/540/nicaragua-san-jose-250gr-3.webp",
-    productName: "Gloria Jean's Nikaragua 250gr",
-    productPrice: "₺395.00",
+    productName: "Gloria Jean's Nikaragua 500gr",
+    productPrice: "₺400.00",
     productRating: "4",
     productİnside: "Yogun",
     productCountry: "Nikaragua",
@@ -551,7 +551,6 @@ function allProductRender() {
         </div>`;
     });
   }
-
   setProductData();
 }
 
@@ -598,71 +597,25 @@ function clearData() {
 document.getElementById("closeBtnTwo").addEventListener("click", (event) => {
   document.getElementById("yourCartSepet").classList.remove("cartSepetShow");
 });
-
 // Bitişi Buradadır!-----------------------------------------------
 
+// Product Inside Data
 const productİnsideData = AllProducts.map((product) => {
   return product.productİnside;
 });
-
 const uniqueProductİnside = [...new Set(productİnsideData)];
-
-function createProductInsıdeCheckbox() {
-  const filterCheckSection = document.getElementById("filter-section");
-  let checkboxHtml = `
-    <div class="accordion" id="filterAccordionInside">
-      <div class="accordion-item">
-        <h2 class="accordion-header" id="headingInside">
-          <button
-            class="accordion-button"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseInside"
-            aria-expanded="true"
-            aria-controls="collapseInside"
-          >
-            İçim
-          </button>
-        </h2>
-        <div
-          id="collapseInside"
-          class="accordion-collapse collapse show"
-          aria-labelledby="headingInside"
-          data-bs-parent="#filterAccordionInside"
-        >
-          <div class="accordion-body filter-section">`;
-
-  uniqueProductİnside.forEach((productİnside, index) => {
-    checkboxHtml += `
-      <div class="form-check custom-checkbox">
-        <input
-          class="form-check-input"
-          type="checkbox"
-          id="optionInside${index}"
-          value="${productİnside}"
-          name="filterCheckbox"
-        />
-        <label class="form-check-label" for="optionInside${index}">
-          ${productİnside}
-        </label>
-      </div>`;
-  });
-
-  checkboxHtml += `
-          </div>
-        </div>
-      </div>
-    </div>`;
-
-  filterCheckSection.innerHTML = checkboxHtml;
-}
-
+// Product Country Data
 const productCountryData = AllProducts.map((product) => {
   return product.productCountry;
 });
-
 const uniqueCountryData = [...new Set(productCountryData)];
+// Product Tasting Data
+const productTastingNoteData = AllProducts.map((product) => {
+  return product.productTastingNote;
+});
+const uniqueProductTastingNote = [...new Set(productTastingNoteData)];
 
+// Bütün Filtreleme Checkboxlarını üstten aldıgımız verilere göre oluşturduk Ve FilterAccordionShow Fonksiyonu ile hem mobile hem masaüstünde aynı degerlere sahip olan checkboxlara filtreleme işlemi uygulandı
 function createCountryCheckbox() {
   const filterCheckSection = document.getElementById("filter-section");
   let checkboxCountryHtml = ` 
@@ -710,16 +663,51 @@ function createCountryCheckbox() {
       </div>
     </div>`;
 
-  filterCheckSection.innerHTML += checkboxCountryHtml;
-}
+  let checkboxHtml = `
+    <div class="accordion" id="filterAccordionInside">
+      <div class="accordion-item">
+        <h2 class="accordion-header" id="headingInside">
+          <button
+            class="accordion-button"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#collapseInside"
+            aria-expanded="true"
+            aria-controls="collapseInside"
+          >
+            İçim
+          </button>
+        </h2>
+        <div
+          id="collapseInside"
+          class="accordion-collapse collapse show"
+          aria-labelledby="headingInside"
+          data-bs-parent="#filterAccordionInside"
+        >
+          <div class="accordion-body filter-section">`;
 
-const productTastingNoteData = AllProducts.map((product) => {
-  return product.productTastingNote;
-});
-const uniqueProductTastingNote = [...new Set(productTastingNoteData)];
+  uniqueProductİnside.forEach((productİnside, index) => {
+    checkboxHtml += `
+      <div class="form-check custom-checkbox">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          id="optionInside${index}"
+          value="${productİnside}"
+          name="filterCheckbox"
+        />
+        <label class="form-check-label" for="optionInside${index}">
+          ${productİnside}
+        </label>
+      </div>`;
+  });
 
-function createProductTastingNote() {
-  const filterCheckSection = document.getElementById("filter-section");
+  checkboxHtml += `
+          </div>
+        </div>
+      </div>
+    </div>`;
+
   let checkboxTastingNoteHtml = ` 
     <div class="accordion" id="filterAccordionTastingNote">
       <div class="accordion-item">
@@ -765,14 +753,15 @@ function createProductTastingNote() {
       </div>
     </div>`;
 
-  filterCheckSection.innerHTML += checkboxTastingNoteHtml;
+  filterCheckSection.innerHTML =
+    checkboxCountryHtml + checkboxHtml + checkboxTastingNoteHtml;
 }
 
+// Yüksek Degerlendirilen Ürünler için veriyi çektik
 const productHightRating = AllProducts.filter((productRating) => {
   let productRatings = productRating.productRating === "5";
   return productRatings;
 });
-
 // Burda ise üstte filtreledigimiz ratingi 5 olan ürünler eleman olarak tutuluyor şimdi aşagıda ise o elemanları foreach döngüsüne sokup html kısmına template ile yansıttık
 let highRatingProductRendered = false;
 function highRatingProductRender(filterProduct) {
@@ -809,7 +798,6 @@ function highRatingProductRender(filterProduct) {
     });
   }
 }
-
 // Burda ise seçilen selectin Valuesini kontrol edip Degerlendirmesi yüksek ise üstteki highRatingProductRating Fonksiyonunu Çagırdık.
 function highRatingSelectedValue() {
   document
@@ -825,161 +813,7 @@ function highRatingSelectedValue() {
       }
     });
 }
-
-// --------------------------
-let allFilteredProducts = [];
-
-function filterProductsİnsideMe() {
-  // Tüm seçili checkbox'ların değerlerini topla
-  const selectedFilters = Array.from(
-    document.querySelectorAll('input[name="filterCheckbox"]:checked')
-  ).map((checkbox) => checkbox.value);
-
-  // Tüm filtrelenen ürünleri toplamak için boş bir dizi
-  allFilteredProducts = [];
-
-  selectedFilters.forEach((filterCheck) => {
-    const filtered = AllProducts.filter(
-      (product) => product.productİnside == filterCheck
-    );
-    allFilteredProducts = allFilteredProducts.concat(filtered);
-  });
-
-  // Filtrelenmiş ürünleri ekrana yazdır
-  document.getElementById("productRow").innerHTML = allFilteredProducts
-    .map(
-      (productFltr) =>
-        `<div class="col-lg-3 col-md-6 col-sm-6 mb-4">
-          <div class="card" data-price="${productFltr.productPrice}">
-            <img
-              src="${productFltr.productPicture}"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h6 class="card-title fw-lighter">${productFltr.productName}</h6>
-              <p class="card-text">${getStars(productFltr.productRating)}</p>
-              <p class="card-text py-2 fs-6">${productFltr.productPrice}.</p>
-              <div><a href="#" class="btn btn-primary">Sepete Ekle</a></div>
-            </div>
-          </div>
-        </div>`
-    )
-    .join(" ");
-}
-
-function filterProductCountry() {
-  // Tüm seçili checkbox'ların değerlerini topla
-  const selectedFilters = Array.from(
-    document.querySelectorAll('input[name="filterCheckboxCountry"]:checked')
-  ).map((checkbox) => checkbox.value);
-
-  selectedFilters.forEach((filterCheck) => {
-    const filtered = AllProducts.filter(
-      (product) => product.productCountry == filterCheck
-    );
-    allFilteredProducts = allFilteredProducts.concat(filtered);
-  });
-
-  // Filtrelenmiş ürünleri ekrana yazdır
-  document.getElementById("productRow").innerHTML = allFilteredProducts
-    .map(
-      (productFltr) =>
-        `<div class="col-lg-3 col-md-6 col-sm-6 mb-4">
-          <div class="card" data-price="${productFltr.productPrice}">
-            <img
-              src="${productFltr.productPicture}"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h6 class="card-title fw-lighter">${productFltr.productName}</h6>
-              <p class="card-text">${getStars(productFltr.productRating)}</p>
-              <p class="card-text py-2 fs-6">${productFltr.productPrice}.</p>
-              <div><a href="#" class="btn btn-primary">Sepete Ekle</a></div>
-            </div>
-          </div>
-        </div>`
-    )
-    .join(" ");
-}
-
-function filterProductTastingNote() {
-  // Tüm seçili checkbox'ların değerlerini topla
-  const selectedFilter = Array.from(
-    document.querySelectorAll('input[name="filterCheckboxCountry"]:checked')
-  ).map((checkbox) => checkbox.value);
-
-  selectedFilter.forEach((filterCheck) => {
-    const filtered = AllProducts.filter(
-      (product) => product.productCountry == filterCheck
-    );
-    allFilteredProducts = allFilteredProducts.concat(filtered);
-  });
-
-  // Filtrelenmiş ürünleri ekrana yazdır
-  document.getElementById("productRow").innerHTML = allFilteredProducts
-    .map(
-      (productFltr) =>
-        `<div class="col-lg-3 col-md-6 col-sm-6 mb-4">
-          <div class="card" data-price="${productFltr.productPrice}">
-            <img
-              src="${productFltr.productPicture}"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h6 class="card-title fw-lighter">${productFltr.productName}</h6>
-              <p class="card-text">${getStars(productFltr.productRating)}</p>
-              <p class="card-text py-2 fs-6">${productFltr.productPrice}.</p>
-              <div><a href="#" class="btn btn-primary">Sepete Ekle</a></div>
-            </div>
-          </div>
-        </div>`
-    )
-    .join(" ");
-  // Tüm seçili checkbox'ların değerlerini topla
-  const selectedFilters = Array.from(
-    document.querySelectorAll('input[name="filterCheckboxTastingnote"]:checked')
-  ).map((checkbox) => checkbox.value);
-
-  selectedFilters.forEach((filterCheck) => {
-    const filtered = AllProducts.filter(
-      (product) => product.productTastingNote == filterCheck
-    );
-    allFilteredProducts = allFilteredProducts.concat(filtered);
-  });
-
-  // Filtrelenmiş ürünleri ekrana yazdır
-  document.getElementById("productRow").innerHTML = allFilteredProducts
-    .map(
-      (productFltr) =>
-        `<div class="col-lg-3 col-md-6 col-sm-6 mb-4">
-          <div class="card" data-price="${productFltr.productPrice}">
-            <img
-              src="${productFltr.productPicture}"
-              class="card-img-top"
-              alt="..."
-            />
-            <div class="card-body">
-              <h6 class="card-title fw-lighter">${productFltr.productName}</h6>
-              <p class="card-text">${getStars(productFltr.productRating)}</p>
-              <p class="card-text py-2 fs-6">${productFltr.productPrice}.</p>
-              <div><a href="#" class="btn btn-primary">Sepete Ekle</a></div>
-            </div>
-          </div>
-        </div>`
-    )
-    .join(" ");
-}
-
-const filterCheckSection = document.getElementById("filter-section");
-filterCheckSection.addEventListener("change", () => {
-  filterProductsİnsideMe();
-  filterProductCountry();
-  filterProductTastingNote();
-});
-
+// Cartların Grid yapısı
 function gridCardOne() {
   document.getElementById("gridBtn").addEventListener("click", () => {
     let elements = document
@@ -993,7 +827,6 @@ function gridCardOne() {
     }
   });
 }
-
 function gridCardTwo() {
   document.getElementById("gridBtnTwo").addEventListener("click", () => {
     let elements = document
@@ -1006,14 +839,11 @@ function gridCardTwo() {
     }
   });
 }
-
 document.addEventListener("DOMContentLoaded", (event) => {
   sidebarSublinkShow();
   YourCartShow();
   allProductRender();
-  createProductInsıdeCheckbox();
   createCountryCheckbox();
-  createProductTastingNote();
   highRatingSelectedValue();
   gridCardOne();
   gridCardTwo();

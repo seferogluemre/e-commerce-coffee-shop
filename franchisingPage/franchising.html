@@ -80,9 +80,9 @@
     </div>
 
     <div class="yourCartSepet" id="yourCartSepet">
-      <div class="">
+      <div class="row" id="cartRowOne">
         <div class="text-start">
-          <h5 class="fw-medium">Sepetim(0)</h5>
+          <h5 class="fw-medium" id="productLength">Sepetim(0)</h5>
         </div>
         <div class="text-end">
           <a class="text-black">
@@ -118,6 +118,30 @@
         <div class="d-grid">
           <button class="btn cartShoppıngBtn">Alışverişe Başla</button>
         </div>
+      </div>
+
+      <div class="row" id="cartProductRows"></div>
+      <div class="row d-grid">
+        <div class="d-block">
+          <button class="btn btn-light" id="closeBtnTwo">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              width="26"
+              height="26"
+              fill="currentColor"
+              class="bi bi-x-lg"
+              viewBox="0 0 16 16"
+            >
+              <path
+                d="M2.146 2.854a.5.5 0 1 1 .708-.708L8 7.293l5.146-5.147a.5.5 0 0 1 .708.708L8.707 8l5.147 5.146a.5.5 0 0 1-.708.708L8 8.707l-5.146 5.147a.5.5 0 0 1-.708-.708L7.293 8z"
+              />
+            </svg>
+          </button>
+        </div>
+
+        <button class="btn btn-info" id="clearCart" onclick="clearData()">
+          Sepeti Temizle
+        </button>
       </div>
     </div>
 

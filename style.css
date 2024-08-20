@@ -143,6 +143,12 @@ body {
   cursor: pointer;
 }
 
+.cartHide {
+  display: none !important;
+}
+.closeBtnTwo {
+  display: none !important;
+}
 /* Mobile Sidebar */
 .offcanvas {
   background-color: rgb(219, 100, 21) !important;
@@ -196,7 +202,7 @@ body {
   width: 440px;
   right: -440px;
   height: 100%;
-  background-color: #e7e1e1;
+  background-color: #fffdfd;
   color: #0b0b0b;
   transition: right 0.3s ease-in-out !important;
   z-index: 1001;
@@ -252,11 +258,7 @@ body {
     margin: 10px 0; /* Kartlar arasına dikey boşluk ekler */
     height: 95% !important;
   }
-  .col-sm-6 {
-    padding-left: 0;
-    width: 50% !important;
-    padding-right: 0;
-  }
+
   .sliderHeader img {
     object-fit: cover;
     object-position: 10% 50% !important;
@@ -305,7 +307,20 @@ body {
   }
   .accordion-button.collapsed {
     background-color: rgb(255, 103, 32);
+  } 
+  .yourCartSepet img{
+    width: 100% !important;
   }
+  .col-sm-4{
+    width: 35% !important;
+    flex: 0 0 50% !important;
+  }
+  .col-sm-8{
+    padding-top: 10% !important;
+    width: 45% !important;
+    flex: 0 0 50%;
+  }
+
 }
 
 /* 1000px'den büyük ekranlar için */

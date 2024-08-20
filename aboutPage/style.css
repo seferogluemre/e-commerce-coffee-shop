@@ -53,6 +53,20 @@ body {
   background-color: rgb(219, 100, 21) !important;
 }
 
+.cartHide {
+  display: none !important;
+}
+#productsRowEnd .cardImage {
+  width: 500px !important;
+}
+
+.countShow {
+  display: block !important;
+}
+.closeBtnTwo {
+  display: none !important;
+}
+
 /* Cart Sepet */
 .yourCartSepet {
   position: fixed;
@@ -60,7 +74,7 @@ body {
   width: 440px;
   right: -440px;
   height: 100%;
-  background-color: #e7e1e1;
+  background-color: #f7f2f2;
   color: #0b0b0b;
   transition: right 0.3s ease-in-out !important;
   z-index: 1001;
