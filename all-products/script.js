@@ -6,12 +6,6 @@ function sidebarSublinkShow() {
       e.preventDefault();
       document.getElementById("subSidebar").classList.add("show-sub-sidebar");
     });
-
-  document.getElementById("backBtn").addEventListener("click", function () {
-    document.getElementById("subSidebar").classList.remove("show-sub-sidebar");
-    document.getElementById("sidebar").classList.add("show-sidebar");
-    document.getElementById("burgerMenu").style.display = "none"; // Keep burger menu hidden
-  });
 }
 
 function searchBoxToggle() {
