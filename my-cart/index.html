@@ -3,8 +3,8 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Gloria Jean's | İletişim</title>
-    <link rel="stylesheet" href="style.css" />
+    <title>Gloria Jean's | Hakkımızda</title>
+    <link rel="stylesheet" href="/my-cart/style.css" />
     <link
       rel="shortcut icon"
       href="https://cdn.myikas.com/images/theme-images/ab40da93-727d-4580-b40b-475804135511/image_1080.jpg"
@@ -17,7 +17,6 @@
       crossorigin="anonymous"
     />
   </head>
-
   <body>
     <div class="topSocialLink">
       <div class="d-flex justify-content-end">
@@ -190,11 +189,7 @@
               </div>
               <div class="offcanvas-body fs-4 fw-medium">
                 <ul class="list-unstyled sidebarLink">
-                  <li
-                    onclick="window.location.href='/gloria-jeans-clon/index.html'"
-                  >
-                    Ana Sayfa
-                  </li>
+                  <li onclick="window.location.href='.html'">Ana Sayfa</li>
                   <li id="sidebarCoffeeLink">
                     Kahveler<svg
                       xmlns="http://www.w3.org/2000/svg"
@@ -203,7 +198,7 @@
                       fill="currentColor"
                       class="bi bi-arrow-right-short"
                       viewBox="0 0 16 16"
-                      onclick="window.location.href='/gloria-jeans-clon/allProductsPage/index.html'"
+                      onclick="window.location.href='/all-productsPage.html'"
                     >
                       <path
                         fill-rule="evenodd"
@@ -212,19 +207,15 @@
                     </svg>
                   </li>
 
-                  <li
-                    onclick="window.location.href='/gloria-jeans-clon/aboutPage/index.html'"
-                  >
+                  <li onclick="window.location.href='/about.html'">
                     Hakkımızda
                   </li>
                   <li
-                    onclick="window.location.href='/gloria-jeans-clon/franchisingPage/franchising.html'"
+                    onclick="window.location.href='/franchising/franchising.html'"
                   >
                     Franchising
                   </li>
-                  <li
-                    onclick="window.location.href='/gloria-jeans-clon/contactPage/index.html'"
-                  >
+                  <li onclick="window.location.href='/contact.html'">
                     İletişim
                   </li>
                 </ul>
@@ -369,22 +360,12 @@
             <ul
               class="d-flex list-unstyled column-gap-4 align-items-center fw-medium navLinks me-5"
             >
-              <li
-                onclick="window.location.href='/gloria-jeans-clon/index.html'"
-              >
-                AnaSayfa
-              </li>
-              <li
-                onclick="window.location.href='/gloria-jeans-clon/allProductsPage/index.html'"
-              >
+              <li onclick="window.location.href='.html'">AnaSayfa</li>
+              <li onclick="window.location.href='/all-productsPage.html'">
                 Kahveler
               </li>
 
-              <li
-                onclick="window.location.href='/gloria-jeans-clon/aboutPage/index.html'"
-              >
-                Hakkımızda
-              </li>
+              <li onclick="window.location.href='/about.html'">Hakkımızda</li>
               <img
                 src="https://cdn.myikas.com/images/theme-images/a06bf36f-2739-4054-8bb3-7853ba535cc6/image_720.webp"
                 class="img-fluid rounded-pill navBrandLogo"
@@ -392,15 +373,11 @@
               />
               <li
                 class="mx-4"
-                onclick="window.location.href='/gloria-jeans-clon/franchisingPage/franchising.html'"
+                onclick="window.location.href='/franchising/franchising.html'"
               >
                 Franchising
               </li>
-              <li
-                onclick="window.location.href='/gloria-jeans-clon/contactPage/index.html'"
-              >
-                İletişim
-              </li>
+              <li onclick="window.location.href='/contact.html'">İletişim</li>
             </ul>
             <ul
               class="d-flex list-unstyled align-items-center pt-3 column-gap-4 navEndLinks"
@@ -459,137 +436,17 @@
       </div>
     </nav>
 
-    <div class="mainForm my-5">
-      <div class="text-center">
-        <h6 class="display-5">Bize Ulaşın</h6>
-        <p class="fw-medium">
-          ​Görüş, öneri ya da şikayetinizi paylaşmak isterseniz "İletişim
-          Formu"nu doldurarak bize ulaştırabilirsiniz. En kısa sürede
-          değerlendirip size geri dönüş sağlıyacağız.
-        </p>
-      </div>
-      <form
-        action="https://formsubmit.co/yunusemre5331@icloud.com"
-        method="POST"
-      >
-        <div class="container">
-          <div class="row px-5">
-            <div class="col-lg-6">
-              <form action="">
-                <div>
-                  <label for="name" class="form-label fs-5"
-                    ><strong>*</strong>Ad</label
-                  >
-                </div>
-                <div class="form-floating mb-2">
-                  <input
-                    type="text"
-                    name="name"
-                    id="name"
-                    class="form-control"
-                  />
-                </div>
-              </form>
-            </div>
-            <div class="col-lg-6">
-              <form action="">
-                <div>
-                  <label for="surname" class="form-label fs-5"
-                    ><strong>*</strong>Soyisim</label
-                  >
-                </div>
-                <div class="form-floating mb-2">
-                  <input
-                    type="text"
-                    name="surname"
-                    id="surname"
-                    class="form-control"
-                  />
-                </div>
-              </form>
-            </div>
+    <main class="my-3">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8">
+            <div class="text-start display-6">Sepetim</div>
+            <div class="" id="cartProduct"></div>
           </div>
-          <div class="row px-5">
-            <div class="col-lg-6">
-              <form action="">
-                <div>
-                  <label for="email" class="form-label fs-5"
-                    ><strong>*</strong>E-Mail</label
-                  >
-                </div>
-                <div class="form-floating mb-2">
-                  <input
-                    type="email"
-                    name="email"
-                    id="email"
-                    class="form-control"
-                  />
-                </div>
-              </form>
-            </div>
-            <div class="col-lg-6">
-              <form action="">
-                <div class="mb-2">
-                  <label for="country" class="form-label fs-5"
-                    >Ülke Kodunu Seçiniz</label
-                  >
-                </div>
-                <div class="d-flex flex-row justify-content-between">
-                  <select
-                    id="country"
-                    name="selectedCountry"
-                    class="form-select"
-                  ></select>
-                </div>
-                <div class="pt-3">
-                  <p id="result"></p>
-                </div>
-              </form>
-            </div>
-          </div>
-          <div class="row py-2">
-            <div class="col-lg-12 px-5">
-              <div class="mx-3">
-                <label for="message" class="form-label fs-5">Mesaj;</label>
-              </div>
-              <div>
-                <textarea
-                  name="messageText"
-                  id="message"
-                  cols="120"
-                  rows="7"
-                ></textarea>
-              </div>
-              <div>
-                <p>
-                  Kişisel Verilerin Korunması Kanunu
-                  <a href="#" class="text-decoration-none">Okudum</a>
-                  <a href="#" class="text-decoration-none">Kabul Ediyorum</a>
-                </p>
-              </div>
-              <div class="d-grid">
-                <button class="btn mb-2">Gönder</button>
-                <p>
-                  Bu site reCAPTCHA tarafından korunmaktadır ve Google
-                  <a href="#">Gizlilik Politikası</a>Ve
-                  <a href="#">Hizmet Şartları</a>Geçerlidir
-                </p>
-              </div>
-            </div>
-          </div>
+          <div class="col-lg-4 col-sm-12 pt-lg-5" id="siparişÖzeti"></div>
         </div>
-      </form>
-      <div class="text-center mt-5">
-        <p class="fs-6">
-          <strong class="text-black">SEFEROGLU</strong> Danışmanlık ve YAZILIM
-          TİC. A.Ş. Esentepe Mah. Büyükdere Cad. Plaza Center (A Blok) No:87
-          Kat:15 İç kapı No:54 Üsküdar / İstanbul
-        </p>
-        <h5>Çagrı Merkezi</h5>
-        <p>0 850 308 71 71</p>
-        <p class="fw-bold">iletisim@gloriajeans.com.tr</p>
       </div>
-    </div>
+    </main>
 
     <!-- Footer -->
     <section class="footerSection">
@@ -703,7 +560,7 @@
               <p class="fw-bold">0850 987 4653</p>
               <p>iletisim@glorajeans.com.tr</p>
               <img
-                src="/gloria-jeans-clon/image/etbislogo.jpeg"
+                src="/image/etbislogo.jpeg"
                 class="img-fluid footerEtbisLogo"
                 alt=""
               />
@@ -818,6 +675,6 @@
       integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
       crossorigin="anonymous"
     ></script>
-    <script src="script.js"></script>
+    <script src="/my-cart/main.js"></script>
   </body>
 </html>
