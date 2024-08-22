@@ -307,20 +307,19 @@ body {
   }
   .accordion-button.collapsed {
     background-color: rgb(255, 103, 32);
-  } 
-  .yourCartSepet img{
+  }
+  .yourCartSepet img {
     width: 100% !important;
   }
-  .col-sm-4{
+  .col-sm-6 {
     width: 35% !important;
     flex: 0 0 50% !important;
   }
-  .col-sm-8{
+  .col-sm-8 {
     padding-top: 10% !important;
     width: 45% !important;
     flex: 0 0 50%;
   }
-
 }
 
 /* 1000px'den büyük ekranlar için */
